@@ -19,7 +19,16 @@ export class ContactsComponent implements OnInit {
     response => {
       this.loading=false;
       this.contacts=response.data;
-      console.log("response:",response)
-    }); 
+    }).catch( 
+      error => {
+        this.loading=false;
+        console.log("error:",error);
+        // this.notification_service.showError('Error',error.error)
+      }
+    ); 
+  }
+  onDelete(event:any) { //RECARGA LOS BLOGS AL AGREGARCE UNO NUEVO
+    console.log("event:",event)
+    this.contacts=this.contacts.filter((element)=> element.id!=event);
   }
 }

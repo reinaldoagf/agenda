@@ -12,6 +12,10 @@ const routes: Routes = [
   {
     path: 'contact-form',
     component: ContactFormComponent,
+  }, 
+  {
+    path: 'contact-form/:id',
+    component: ContactFormComponent,
   },  
 ];
 

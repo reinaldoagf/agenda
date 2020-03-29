@@ -10,12 +10,13 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { ContactItemComponent } from './components/contact-item/contact-item.component';
 //services
 import { ContactService } from './services/contact.service';
+import { NotificationService } from './services/notification.service';
 //modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -28,15 +29,17 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   ],
   providers: [
     ContactService,
+    NotificationService
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule,
     FontAwesomeModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent]
 })

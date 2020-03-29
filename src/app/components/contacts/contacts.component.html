@@ -16,7 +16,7 @@
 				  	</div>
 			  	</div>
 				<ul class="list-group">
-					<app-contact-item *ngFor="let contact of contacts | filter:search" [contact]="contact"></app-contact-item>
+					<app-contact-item *ngFor="let contact of contacts | filter:search" [contact]="contact" (onDelete)="onDelete($event)"></app-contact-item>
 			    </ul>
 			</div>			
 		</div>

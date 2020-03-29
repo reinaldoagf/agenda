@@ -7082,6 +7082,11 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
+sweetalert2@^9.10.7:
+  version "9.10.7"
+  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-9.10.7.tgz#4ce1a518834cd6880283ae04b337293ffc129551"
+  integrity sha1-TOGlGINM1ogCg64EszcpP/wSlVE=
+
 symbol-observable@1.2.0:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"

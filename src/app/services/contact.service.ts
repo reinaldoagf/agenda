@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'; 
-import { Contact } from '../models/contact'
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -11,8 +10,8 @@ export class ContactService {
     }
     getHttpHeaders(){
         return new HttpHeaders({
-            "Content-Type": "application/json",   
-            "accept": "application/json",
+            // "Content-Type": "application/json",
+            // "accept": "application/json",
         });
     }
     all(): Observable <any> {
@@ -20,7 +19,7 @@ export class ContactService {
           {headers:this.getHttpHeaders()}
         );
     }
-    create(contact_data: Contact): Observable<any> {
+    create(contact_data: any): Observable<any> {
         return this.http.post(this.base_url+'store',
           contact_data,
           {headers:this.getHttpHeaders()}
@@ -36,7 +35,7 @@ export class ContactService {
           {headers:this.getHttpHeaders()}
         );
     }
-    update(id:number, contact_data: Contact): Observable <any> {
+    update(id:number, contact_data: any): Observable <any> {
         return this.http.post(this.base_url+'update/'+id,
           contact_data,
           {headers:this.getHttpHeaders()}

@@ -4,7 +4,7 @@ export class Contact {
     last_name: string;
     email: string;
     phone:string;
-    photo: string;
+    photo: any;
     create_at: Date;
     updated_at: Date;
 }

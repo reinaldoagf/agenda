@@ -1,1 +1,109 @@
-<p>contact-form works!</p>
+<div class="container-fluid">
+	<div class="row">	
+		<div class="col-md-12 ">
+			<form [formGroup]="form">
+			<div class="card" style="">
+				<div>
+			        <div class="photo-upload">
+			          <div class="photo-edit">
+			            <input
+			              type="file"
+			              id="imageUpload"
+			              accept=".png, .jpg, .jpeg"
+			              (change)="fileProgress($event)"
+			            />
+			            <label for="imageUpload"><i class="fa fa-upload"></i></label>
+			          </div>
+			          <div class="photo-preview">
+			            <div
+			              id="imagePreview"
+			              [style.background-image]="'url(' + backgroundImage + ')'"
+			            ></div>
+			          </div>
+			        </div>
+			        <div
+			          *ngIf="fileDataValidator.format && submitted"
+			          class="alert alert-danger m-2"
+			          role="alert"
+			          style="margin:5px;"
+			        >
+			          <div *ngIf="fileDataValidator.format">Formato no permitido</div>
+			        </div>
+			    </div>
+			  	<div class="card-body">
+			    <h5 class="card-title">Registro de contacto</h5>
+				  	<div class="form-row">
+					    <div class="form-group col">
+      						<label for="inputEmail4">Nombre</label>
+					      	<input type="text" class="form-control" [(ngModel)]="contact.name" formControlName="name"placeholder="Nombre">
+					      	<div *ngIf="f.name.errors && submitted" class="alert alert-danger m-2" role="alert">
+				              	<div *ngIf="f.name.errors.required">
+				              	  El Nombre son requeridos
+				              	</div>
+				              	<div *ngIf="f.name.errors.maxlength">
+				              	  El Nombre debe contener máximo 30 dígitos
+				              	</div>
+				              	<div *ngIf="f.name.errors.pattern">
+				              	  El Nombre debe contener únicamente carácteres
+				              	  alfabéticos
+				              	</div>
+				            </div>
+					    </div>
+				    	<div class="form-group col">
+      						<label for="inputEmail4">Apellido</label>
+				      		<input type="text" class="form-control" [(ngModel)]="contact.last_name" formControlName="last_name" placeholder="Apellido">
+				      		<div *ngIf="f.last_name.errors && submitted" class="alert alert-danger m-2" role="alert">
+				              	<div *ngIf="f.last_name.errors.maxlength">
+				              	  El Apellido debe contener máximo 30 dígitos
+				              	</div>
+				              	<div *ngIf="f.last_name.errors.pattern">
+				              	  El Apellido debe contener únicamente carácteres
+				              	  alfabéticos
+				              	</div>
+				            </div>
+				    	</div>
+				  	</div>
+				  	<div class="form-row">
+					    <div class="form-group col">
+      						<label for="inputEmail4">Email</label>
+					      	<input type="text" class="form-control" [(ngModel)]="contact.email" formControlName="email" placeholder="Email">
+					      	<div *ngIf="f.email.errors && submitted" class="alert alert-danger m-2" role="alert">
+						        <div *ngIf="f.email.errors.required">
+						            El Correo electronico es requerido
+						        </div>
+						        <div *ngIf="f.email.errors.pattern">
+						            Debe ingresar un correo electronico válido
+						        </div>
+						    </div>
+						</div>
+				    	<div class="form-group col">
+      						<label for="inputEmail4">Teléfono</label>
+				      		<input type="tel" class="form-control" [(ngModel)]="contact.phone" formControlName="phone" placeholder="Teléfono" (keyup)="phoneFormat($event)">
+				      		<div *ngIf="f.phone.errors && submitted" class="alert alert-danger m-2" role="alert">
+          						<div *ngIf="f.phone.errors.required">El teléfono es requerido</div>
+						        <div *ngIf="f.phone.errors.minlength">
+						          El Teléfono debe contener un mínimo de 10 dígitos.
+						          Ejemplo: +54 9 11 1234 1234
+						        </div>
+						        <div *ngIf="f.phone.errors.maxlength">
+						          El Teléfono debe contener un máximo de 18 dígitos.
+						          Ejemplo: +54 9 11 1234 1234
+						        </div>
+        					</div>
+      					</div>
+				  	</div>
+				  	<div class="form-row">
+					    <div class="form-group col">
+      						<label for="inputEmail4">Dirección</label>
+					      	<input type="text" class="form-control" [(ngModel)]="contact.address" formControlName="address" placeholder="Dirección">
+					    </div>
+				  	</div>
+			  	</div>
+				<div class="card-footer">
+				    <button type="submit" class="btn primary-button float-right" [disabled]="loading" (click)="save()"><i [class]="loading?'fas fa-circle-notch fa-spin':'fa fa-user'"></i> Guardar</button>
+				</div>
+			</div>
+			</form>			
+		</div>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+.cursor-pointer{
+	cursor: pointer;
+}
+.nav-item{
+	color: white;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}

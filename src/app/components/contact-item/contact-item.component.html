@@ -1,0 +1,28 @@
+<li class="list-group-item d-flex justify-content-between align-items-center">
+	<div class="contact-photo">
+		<img [src]="contact.photo?contact.photo:'https://exelord.com/ember-initials/images/default-d5f51047d8bd6327ec4a74361a7aae7f.jpg'" class="circle-img w-100" alt="lay">
+	</div>
+	<div class="contact-info p-2">
+		<div>			
+			<h1>{{contact.name}} {{contact.last_name}}</h1>
+		</div>
+		<div>			
+			<h3>{{contact.phone}}</h3>
+		</div>
+		<div>
+			<span>{{contact.email}}</span>
+		</div>
+	</div>
+	<div class="contact-options">
+		<div>
+			<a href="#" class="btn primary-button w-100 h-100">
+				<i class="fa fa-edit"></i>
+			</a>
+		</div>
+		<div>
+			<button class="btn danger-button w-100 h-100">
+				<i class="fa fa-trash"></i>
+			</button>
+		</div>
+	</div>
+</li>
